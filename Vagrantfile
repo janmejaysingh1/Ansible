@@ -17,6 +17,7 @@ Vagrant.configure("2") do |config|
   end
   dockertest.vm.synced_folder ".", "/home/vagrant",  :mount_options => ["dmode=777", "fmode=666"]
   dockertest.vm.provision "shell", inline: <<-SHELL
+  sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config; sudo systemctl restart sshd;, run: "always"
   echo "Installing updates"
   yum update -y
   echo "Installing epel-release"
