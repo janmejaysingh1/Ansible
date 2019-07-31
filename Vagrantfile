@@ -36,7 +36,7 @@ Vagrant.configure("2") do |config|
   echo "Installing openshif file move"
   cd /tmp/Openshift
     echo "Installing openshift git clone"
-  git clone git@github.com:openshift/openshift-ansible.git --branch release-3.11 --depth 1
+  git clone -b release-3.11 https://github.com/openshift/openshift-ansible.git --depth
     echo "Installing openshif file"
   cd openshift-ansible
     echo "Installing runing play book 1"
