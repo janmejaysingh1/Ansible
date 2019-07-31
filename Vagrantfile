@@ -21,6 +21,12 @@ Vagrant.configure("2") do |config|
   yum install java-1.8.0-openjdk-headless -y
   yum install httpd-tools
   yum install git* -y
+  mkdir -p /tmp/Openshift
+  cd /tmp/Openshift
+  git clone https://github.com/openshift/openshift-ansible
+  cd openshift-ansible
+  sudo ansible-playbook -i inventory/hosts.localhost playbooks/prerequisites.yml
+  sudo ansible-playbook -i inventory/hosts.localhost playbooks/deploy_cluster.yml
   SHELL
   end
   end
